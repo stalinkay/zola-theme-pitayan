@@ -11,6 +11,7 @@
     @apply mt-6;
     @apply mb-6;
     @apply relative;
+		/* @apply font-sans; */
   }
 
   a {
@@ -21,10 +22,11 @@
     &:active,
     &:focus {
       @apply outline-none;
+			@apply after:content-['_↗'] !important;
     }
 
     &:focus {
-      @apply ring-2 ring-indigo-300 ring-offset-1;
+      @apply ring-2 ring-yellow-300 ring-offset-1;
     }
 
     &[disabled],

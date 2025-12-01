@@ -29,7 +29,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: "Exo 2", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
 }
 /*
 1. Remove the margin in all browsers.
@@ -90,7 +90,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: 'Exo 2', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 /*
@@ -375,7 +375,7 @@ body {
 }
 .dark body {
   --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 body {
   -webkit-transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
@@ -631,20 +631,10 @@ body {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.items-end {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
 .items-center {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.items-baseline {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
 }
 .justify-start {
   -webkit-box-pack: start;
@@ -811,7 +801,7 @@ body {
   vertical-align: super;
 }
 .font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Lora, 'Exo 2', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .text-4xl {
   font-size: 2.25rem;
@@ -881,7 +871,7 @@ body {
 }
 .text-red-600 {
   --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
+  color: rgb(178 0 34 / var(--tw-text-opacity));
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -1285,7 +1275,7 @@ blockquote {
   margin-left: 0px;
   margin-bottom: 1rem;
   line-height: 1.625;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Lora, 'Exo 2', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-style: italic;
   border-left-width: 4px;
   border-style: solid;
@@ -1309,7 +1299,7 @@ blockquote {
   }
 address {
   margin-bottom: 1rem;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: Lora, 'Exo 2', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   font-style: italic;
   line-height: 1.625;
 }
@@ -1357,7 +1347,7 @@ mark {
 }
 /* The inline code tag */
 code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: 'Exo 2', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.875rem;
   line-height: 1.25rem;
   border-radius: 0.25rem;
@@ -1479,7 +1469,7 @@ a.link-button:focus, button:focus {
   -webkit-box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
           box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(199 210 254 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(255 251 237 / var(--tw-ring-opacity));
 }
 a.link-button[disabled], a.link-button:disabled, a.link-button.disabled, button[disabled], button:disabled, button.disabled {
   cursor: default;
@@ -1515,25 +1505,31 @@ a.link-button.fill-button, a.link-button.ghost-button, button.fill-button, butto
 }
 a.link-button.fill-button, button.fill-button {
   --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+  background-color: rgb(228 0 43 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .dark a.link-button.fill-button, .dark button.fill-button {
   --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
+  background-color: rgb(255 205 0 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 a.link-button.fill-button:hover, button.fill-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+  background-color: rgb(255 23 67 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .dark a.link-button.fill-button:hover, .dark button.fill-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+  background-color: rgb(255 216 56 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 a.link-button.fill-button:active, button.fill-button:active {
   --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+  background-color: rgb(255 205 0 / var(--tw-bg-opacity));
 }
 a.link-button.ghost-button, button.ghost-button {
   --tw-text-opacity: 1;
@@ -1543,15 +1539,15 @@ a.link-button.ghost-button, button.ghost-button {
 }
 .dark a.link-button.ghost-button, .dark button.ghost-button {
   --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+  background-color: rgb(63 51 0 / var(--tw-bg-opacity));
 }
 a.link-button.ghost-button:hover, button.ghost-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  background-color: rgb(255 234 147 / var(--tw-bg-opacity));
 }
 .dark a.link-button.ghost-button:hover, .dark button.ghost-button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(108 87 0 / var(--tw-bg-opacity));
 }
 a.link-button.ghost-button:active, button.ghost-button:active {
   --tw-bg-opacity: 1;
@@ -1594,6 +1590,10 @@ a.link-button.lg-button, button.lg-button {
   padding-bottom: 0.75rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.dark .fill-button * {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 input {
   -webkit-appearance: none;
@@ -1740,7 +1740,15 @@ input.default-input {
 }
 .dark input.default-input {
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(63 51 0 / var(--tw-bg-opacity)) !important;
+}
+input:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 234 147 / var(--tw-bg-opacity));
+}
+.dark input:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(108 87 0 / var(--tw-bg-opacity));
 }
 img {
   border-radius: 0.25rem;
@@ -2263,6 +2271,7 @@ table tbody tr:nth-of-type(odd):hover {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   position: relative;
+		/* @apply font-sans; */
 }
 .markdown a {
   -webkit-text-decoration-line: underline;
@@ -2274,13 +2283,17 @@ table tbody tr:nth-of-type(odd):hover {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+.markdown a:active::after, .markdown a:focus::after {
+  --tw-content: ' ↗' !important;
+  content: var(--tw-content) !important;
+}
 .markdown a:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   -webkit-box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
           box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(165 180 252 / var(--tw-ring-opacity));
+  --tw-ring-color: rgb(255 225 101 / var(--tw-ring-opacity));
   --tw-ring-offset-width: 1px;
 }
 .markdown a[disabled], .markdown a:disabled, .markdown a.disabled {

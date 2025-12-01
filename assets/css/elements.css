@@ -13,7 +13,7 @@ a.link-button, button {
 
   &:focus {
     @apply outline-none;
-    @apply ring-2 ring-indigo-200;
+    @apply ring-2 ring-yellow-50;
   }
 
   &[disabled],
@@ -36,19 +36,22 @@ a.link-button, button {
   }
 
   &.fill-button {
-    @apply bg-gray-900;
+    @apply bg-red-500;
     @apply text-white;
 
-    @apply dark:bg-indigo-700;
+    @apply dark:bg-yellow-500;
+		@apply dark:text-black;
 
     &:hover {
-      @apply bg-indigo-600;
+      @apply bg-red-400;
+			@apply text-white;
 
-      @apply dark:bg-indigo-600;
+      @apply dark:bg-yellow-400;
+			@apply dark:text-black;
     }
 
     &:active {
-      @apply bg-indigo-500;
+      @apply bg-yellow-500;
     }
   }
 
@@ -56,11 +59,11 @@ a.link-button, button {
     @apply text-gray-800;
     @apply bg-gray-200;
 
-    @apply dark:bg-gray-800;
+    @apply dark:bg-yellow-900;
 
     &:hover {
-      @apply bg-gray-300;
-      @apply dark:bg-gray-700;
+      @apply bg-yellow-200;
+      @apply dark:bg-yellow-800;
     }
 
     &:active {
@@ -86,6 +89,10 @@ a.link-button, button {
   &.lg-button {
     @apply py-3 px-8;
   }
+}
+
+.fill-button * {
+	@apply dark:text-black;
 }
 
 input {
@@ -129,7 +136,12 @@ input {
     @apply transition duration-150;
     @apply bg-gray-100;
 
-    @apply dark:!bg-gray-800;
+    @apply dark:!bg-yellow-900;
+  }
+
+  &:hover {
+    @apply bg-yellow-200;
+    @apply dark:bg-yellow-800;
   }
 }
 

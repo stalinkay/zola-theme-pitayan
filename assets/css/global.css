@@ -4,7 +4,7 @@ body {
   @apply antialiased;
 
   /* Dark Mode*/
-  @apply dark:bg-gray-900;
+  @apply dark:bg-black;
   @apply transition-colors duration-300 ease-in-out;
 
   /* fix ios tap flikering */
