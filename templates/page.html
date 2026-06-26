@@ -125,31 +125,6 @@
 
 <hr />
 
-<p class="my-4 text-xl">You might <b class="font-extrabold">also like</b></p>
-{% set section = get_section(path="posts/_index.md") %}
-{% set all_posts = section.pages %}
-
-<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-36">
-  {% if page.taxonomies.categories %}
-    {% set_global related_posts = all_posts | slice(end=4) | sort(attribute="date") | reverse %}
-    {% for post in all_posts %}
-      {% if post.title != page.title %}
-        {% for category in page.taxonomies.categories %}
-          {% if category in post.taxonomies.categories %}
-            {% set_global related_posts = [post] | concat(with=related_posts) | slice(end=4) %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
-    {% for post in related_posts %}
-      {{postItem::render(
-        post=post,
-        display_categories=false,
-        display_meta=false,
-        display_description=false
-      )}}
-    {% endfor %}
-  {% endif %}
-</div>
+{% include "partials/relatedPosts.html" %}
 
 {% endblock content %}

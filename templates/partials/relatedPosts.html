@@ -1,0 +1,101 @@
+{% import "macros/postItem.html" as postItem %}
+
+{#
+  Related posts selection.
+
+  Priority order (each tier only runs until 4 posts are gathered):
+    1. Hand-curated overrides via `page.extra.related` (list of post slugs).
+    2. Posts sharing at least one tag AND one category (strongest match).
+    3. Posts sharing at least one tag.
+    4. Posts sharing at least one category.
+    5. Most-recent posts as a fallback so the block is never empty.
+
+  The current post is always excluded and duplicates are skipped.
+#}
+
+{% set section = get_section(path="posts/_index.md") %}
+{% set all_posts = section.pages %}
+
+{% set_global related = [] %}
+{% set_global related_slugs = [] %}
+
+{# Tier 1: manual overrides #}
+{% if page.extra.related %}
+  {% for slug in page.extra.related %}
+    {% for post in all_posts %}
+      {% if post.slug == slug and post.slug not in related_slugs and post.slug != page.slug and related | length < 4 %}
+        {% set_global related = related | concat(with=[post]) %}
+        {% set_global related_slugs = related_slugs | concat(with=[post.slug]) %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{# Tier 2: shared tag AND shared category #}
+{% if related | length < 4 and page.taxonomies.tags and page.taxonomies.categories %}
+  {% for post in all_posts %}
+    {% if post.slug != page.slug and post.slug not in related_slugs and related | length < 4 and post.taxonomies.tags and post.taxonomies.categories %}
+      {% set_global has_tag = false %}
+      {% for t in page.taxonomies.tags %}{% if t in post.taxonomies.tags %}{% set_global has_tag = true %}{% endif %}{% endfor %}
+      {% set_global has_cat = false %}
+      {% for c in page.taxonomies.categories %}{% if c in post.taxonomies.categories %}{% set_global has_cat = true %}{% endif %}{% endfor %}
+      {% if has_tag and has_cat %}
+        {% set_global related = related | concat(with=[post]) %}
+        {% set_global related_slugs = related_slugs | concat(with=[post.slug]) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Tier 3: shared tag #}
+{% if related | length < 4 and page.taxonomies.tags %}
+  {% for post in all_posts %}
+    {% if post.slug != page.slug and post.slug not in related_slugs and related | length < 4 and post.taxonomies.tags %}
+      {% set_global has_tag = false %}
+      {% for t in page.taxonomies.tags %}{% if t in post.taxonomies.tags %}{% set_global has_tag = true %}{% endif %}{% endfor %}
+      {% if has_tag %}
+        {% set_global related = related | concat(with=[post]) %}
+        {% set_global related_slugs = related_slugs | concat(with=[post.slug]) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Tier 4: shared category #}
+{% if related | length < 4 and page.taxonomies.categories %}
+  {% for post in all_posts %}
+    {% if post.slug != page.slug and post.slug not in related_slugs and related | length < 4 and post.taxonomies.categories %}
+      {% set_global has_cat = false %}
+      {% for c in page.taxonomies.categories %}{% if c in post.taxonomies.categories %}{% set_global has_cat = true %}{% endif %}{% endfor %}
+      {% if has_cat %}
+        {% set_global related = related | concat(with=[post]) %}
+        {% set_global related_slugs = related_slugs | concat(with=[post.slug]) %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Tier 5: most-recent fallback #}
+{% if related | length < 4 %}
+  {% set recent = all_posts | sort(attribute="date") | reverse %}
+  {% for post in recent %}
+    {% if post.slug != page.slug and post.slug not in related_slugs and related | length < 4 %}
+      {% set_global related = related | concat(with=[post]) %}
+      {% set_global related_slugs = related_slugs | concat(with=[post.slug]) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if related | length > 0 %}
+<p class="my-4 text-xl">You might <b class="font-extrabold">also like</b></p>
+<div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-36">
+  {% for post in related %}
+    {{postItem::render(
+      post=post,
+      display_categories=false,
+      display_meta=false,
+      display_description=false
+    )}}
+  {% endfor %}
+</div>
+{% endif %}
