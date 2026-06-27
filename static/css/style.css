@@ -2304,6 +2304,34 @@ table tbody tr:nth-of-type(odd):hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+/* Heading-wrapping anchors (insert_anchor_links = "heading"):
+     keep headings visually identical to plain text. */
+.markdown h1 a, .markdown h2 a, .markdown h3 a, .markdown h4 a, .markdown h5 a, .markdown h6 a {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+    font-weight: inherit;
+    color: inherit !important;
+}
+.markdown h1 a::after,
+    .markdown h1 a:active::after,
+    .markdown h1 a:focus::after,
+    .markdown h2 a::after,
+    .markdown h2 a:active::after,
+    .markdown h2 a:focus::after,
+    .markdown h3 a::after,
+    .markdown h3 a:active::after,
+    .markdown h3 a:focus::after,
+    .markdown h4 a::after,
+    .markdown h4 a:active::after,
+    .markdown h4 a:focus::after,
+    .markdown h5 a::after,
+    .markdown h5 a:active::after,
+    .markdown h5 a:focus::after,
+    .markdown h6 a::after,
+    .markdown h6 a:active::after,
+    .markdown h6 a:focus::after {
+      content: none !important;
+    }
 .markdown table {
   margin-bottom: 2rem;
   display: block;

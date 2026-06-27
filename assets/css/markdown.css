@@ -40,6 +40,25 @@
     }
   }
 
+  /* Heading-wrapping anchors (insert_anchor_links = "heading"):
+     keep headings visually identical to plain text. */
+  h1 a,
+  h2 a,
+  h3 a,
+  h4 a,
+  h5 a,
+  h6 a {
+    @apply no-underline;
+    font-weight: inherit;
+    color: inherit !important;
+
+    &::after,
+    &:active::after,
+    &:focus::after {
+      content: none !important;
+    }
+  }
+
   table {
     @apply mb-8;
     @apply block;
