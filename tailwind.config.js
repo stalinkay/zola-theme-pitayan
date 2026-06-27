@@ -27,6 +27,11 @@ module.exports = {
 	content: [
 		path.resolve(__dirname, "assets/**/*.{ts,js,svg}"),
 		"./templates/**/*.html",
+		// At build time this config is copied into the theme root, so the
+		// project's own templates live two levels up. Scanning them ensures
+		// utilities used only in project template overrides (e.g. lg:hidden)
+		// are not purged.
+		path.resolve(__dirname, "../../templates/**/*.html"),
 	],
 	theme: {
 		extend: {
