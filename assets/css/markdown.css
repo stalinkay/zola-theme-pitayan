@@ -1,6 +1,8 @@
 .markdown {
   @apply max-w-screen-md;
 
+  overflow-wrap: break-word;
+
   h1,
   h2,
   h3,
@@ -40,11 +42,21 @@
 
   table {
     @apply mb-8;
+    @apply block;
+    @apply max-w-full;
+    @apply overflow-x-auto;
   }
 
   pre {
     @apply mb-8;
     @apply py-4 px-6;
+    @apply max-w-full;
+    @apply overflow-x-auto;
+  }
+
+  img {
+    @apply max-w-full;
+    @apply h-auto;
   }
 
   blockquote {

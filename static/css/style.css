@@ -2265,6 +2265,8 @@ table tbody tr:nth-of-type(odd):hover {
       }
 .markdown {
   max-width: 768px;
+
+  overflow-wrap: break-word;
 }
 .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
   padding-top: 1.5rem;
@@ -2304,6 +2306,9 @@ table tbody tr:nth-of-type(odd):hover {
 }
 .markdown table {
   margin-bottom: 2rem;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
 .markdown pre {
   margin-bottom: 2rem;
@@ -2311,6 +2316,12 @@ table tbody tr:nth-of-type(odd):hover {
   padding-bottom: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.markdown img {
+  max-width: 100%;
+  height: auto;
 }
 .markdown blockquote {
   margin-bottom: 2.5rem;
